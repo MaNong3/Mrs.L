@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>git | 码农</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="git：     git 快速入门">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git">
+<meta property="og:url" content="http://yoursite.com/2015/05/22/git/index.html">
+<meta property="og:site_name" content="码农">
+<meta property="og:description" content="git：     git 快速入门">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-01T08:53:31.329Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git">
+<meta name="twitter:description" content="git：     git 快速入门">
+  
+    <link rel="alternate" href="/atom.xml" title="码农" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/plugin/bganimation/bg.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <div class="widget-wrap mobile-header">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">Mrs L</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>1</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+    </div>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+        <section id="main"><article id="post-git" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/22/git/" class="article-date">
+  <time class="post-time" datetime="2015-05-22T06:35:43.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br>
+    <span class="post-day">22</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      git
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> git：</strong> <excerpt in index | 首页摘要><br>    git 快速入门<br><a id="more"></a></excerpt></p>
+<p><the rest of contents | 余下全文></the></p>
+<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Git 是一款免费的、开源的、分布式的版本控制系统。旨在快速高效地处理无论规模大小的任何软件工程。</span><br><span class="line">每一个 Git克隆 都是一个完整的文件库，含有全部历史记录和修订追踪能力，不依赖于网络连接或中心服务器。其最大特色就是“分支”及“合并”操作非常快速、简便</span><br></pre></td></tr></table></figure>
+<h3 id="Git与svn的主要区别"><a href="#Git与svn的主要区别" class="headerlink" title="Git与svn的主要区别"></a>Git与svn的主要区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Git是分布式SCM，而SVN是基于服务器的，也就是说每个开发者本地都有一套git库，每个人维护自己的版本（或者合并其他人的版本），而SVN是每个人写完代码后都及时的checkin到服务器上，进行合并</span><br><span class="line"></span><br><span class="line">1.本地创建git远程仓库在本地建立一个空白的git仓库:git –bare init</span><br><span class="line">2.将本地创建的仓库添加到远程服务器，使用的linux上传命令；</span><br><span class="line">Scp –r 文件夹 linux用户名@ip:/文件目录</span><br><span class="line">如：scp –r gittest.git root@123.207.172.12:/data./git      </span><br><span class="line">(这里是将本地的gittest.git文件夹拷贝到服务器中 /data/git文件夹下)</span><br><span class="line">3.此时可以直接将本地的gittest文件夹关联远程仓库，也可以在本地再次克隆git仓库；使用命令如下：</span><br><span class="line">Git clone git@123.207.172.15:/data/git/gittest.git</span><br><span class="line">4.可以直接创建一个文件，进行上传测试；如:</span><br><span class="line">cd gittest 进入文件夹</span><br><span class="line">vi app.js 然后随便输入字符，esc+wq!进行保存退出；</span><br><span class="line">然后将操作添加至暂存区：</span><br><span class="line">Git add .</span><br><span class="line">创建本地仓库的版本：</span><br><span class="line">Git commit –m “haha”</span><br><span class="line">提交至远程服务器仓库：</span><br><span class="line">Git push origin master;</span><br></pre></td></tr></table></figure>
+<h3 id="https协议"><a href="#https协议" class="headerlink" title="https协议"></a>https协议</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Git remote add origin </span><br><span class="line">Git add .</span><br><span class="line">Git commit –m “haha”</span><br><span class="line">Git push –u origin master</span><br><span class="line">此时需要输入github的用户名和密码</span><br><span class="line">此时会报错: error: failed to push some refs to</span><br><span class="line">（此种原因一般为在github的远程仓库有文件，在本地仓库没有，所以此时应该先将远程仓库合并到本地仓库，再进行提交）</span><br><span class="line">git pull --rebase origin master</span><br><span class="line">注意：这里的rebase和merge的区别，简单理解，rebase在log中无分叉，而merge有</span><br><span class="line">再次提交，将会成功；</span><br></pre></td></tr></table></figure>
+<h3 id="ssh协议"><a href="#ssh协议" class="headerlink" title="ssh协议"></a>ssh协议</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">首先需要创建密钥</span><br><span class="line">Ssh-keygen –t rsa –C 837990335@qq.com</span><br><span class="line">可以一路回车；</span><br><span class="line">(Enter file in which to save the key (/c/Users/dream/.ssh/id_rsa):</span><br><span class="line">这里默认就可以，这是存放ssh密钥的路径)</span><br><span class="line">（Enter passphrase (empty for no passphrase):这里为ssh的密码，可以为空）</span><br><span class="line">然后到C:\Users\用户 \.ssh中找到id_rsa.pub,然后复制里面的密钥到github</span><br><span class="line">例：C:\Users\dream\.ssh</span><br><span class="line">在github的ssh and gpg keys中new ssh key</span><br><span class="line">Title为此ssh的标记</span><br><span class="line">Key为你本地的密钥</span><br><span class="line">测试下：</span><br><span class="line">ssh git@github.com</span><br><span class="line">如果输出You&apos;ve successfully authenticated；说明链接成功；</span><br><span class="line">下面的操作跟https的一样：</span><br></pre></td></tr></table></figure>
+<h3 id="Git的分支管理"><a href="#Git的分支管理" class="headerlink" title="Git的分支管理"></a>Git的分支管理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">查看本地分支：$ git branch</span><br><span class="line">查看远程分支：$ git branch -r</span><br><span class="line">创建本地分支：$ git branch [name] ----注意新分支创建后不会自动切换为当前分支</span><br><span class="line">切换分支：$ git checkout [name]</span><br><span class="line">创建新分支并立即切换到新分支：$ git checkout -b [name]</span><br><span class="line">删除分支：$ git branch -d [name] ---- -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项</span><br><span class="line">合并分支：$ git merge [name] ----将名称为[name]的分支与当前分支合并</span><br><span class="line">创建远程分支(本地分支push到远程)：$ git push origin [name]</span><br><span class="line">删除远程分支：$ git push origin :heads/[name] 或 $ gitpush origin :[name]</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/05/22/git/" data-id="cjtyaxgm20004rwpo7rey82ct" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/22/axios(interceptors)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          axios 入门
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/22/hoc+ts/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">高阶组件 入门</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <h1 class="blog-title">码农</h1>
+    <h2 class="blog-subtitle"></h2>
+    <ul class="blog-link">
+     
+          <a href="/" title="Home">
+            <li>主页</li>
+          </a>
+        
+          <a href="/archives" title="Archives">
+            <li>归档</li>
+          </a>
+        
+          <a href="/categories" title="Categories">
+            <li>分类</li>
+          </a>
+        
+          <a href="/tags" title="Tags">
+            <li>标签</li>
+          </a>
+        
+    </ul>
+  </div>
+</div>
+
+  
+    <div class="widget-wrap">
+  <h3 class="widget-title"></h3>
+  <div class="widget">
+    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
+    <h2 class="author">Mrs L</h2>
+    <h3 class="description"></h3>
+    <div class="count-box">
+      <a href="/archives"><div><strong>7</strong><br>文章</div></a>
+      <a href="/categories"><div><strong>1</strong><br>分类</div></a>
+      <a href="/tags"><div><strong>4</strong><br>标签</div></a>
+    </div>
+
+
+
+    <div class="social-link">
+      
+        <a class="hvr-bounce-in" href="http://github.com/ShanaMaid" target="_blank" title="Github">
+          Github
+        </a>
+      
+    </div>
+
+    <div class="friend-link">
+      <h2>友情链接</h2>
+      
+        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
+          ShanaMaid
+        </a>
+      
+    </div>
+  </div>
+</div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy;2018 - 2019 Mrs L<br>
+      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
+      主题-<a href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
+      
+    </div>
+    
+  </div>
+</footer>
+    </div>
+    
+
+<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>   
+
+
+  <link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+  <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+  <link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
+  <script src="/plugin/galmenu/GalMenu.js"></script>
+  <div class="GalMenu GalDropDown">
+      <div class="circle" id="gal">
+        <div class="ring">
+          
+            <a href="/" title class="menuItem">首页</a>
+          
+            <a href="/tags" title class="menuItem">标签</a>
+          
+            <a href="/categories" title class="menuItem">分类</a>
+          
+            <a href="/archives" title class="menuItem">归档</a>
+          
+            <a href="/xxxxxxxxx" title class="menuItem">xxx</a>
+          
+            <a href="/xxxxxxx" title class="menuItem">xxxx</a>
+          
+        </div>
+        
+          <audio id="audio" src="#"></audio>
+        
+      </div> 
+</div>
+<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
+  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
+    for (var i = 0,
+    l = items.length; i < l; i++) {
+      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
+      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
+    }</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('body').GalMenu({
+      'menu': 'GalDropDown'
+    })
+  });
+</script>
+
+  <section class="hidden-xs"> 
+  <ul class="cb-slideshow"> 
+    <li><span>苟利</span></li> 
+    <li><span>国家</span></li> 
+    <li><span>生死以</span></li> 
+    <li><span>岂能</span></li> 
+    <li><span>祸福</span></li> 
+    <li><span>趋避之</span></li> 
+  </ul>
+</section>
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
