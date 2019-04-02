@@ -3,15 +3,20 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Archives: 2019/4 | 码农</title>
+  <title>promise(原生封装) | 码农</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="码农">
-<meta property="og:url" content="https://github.com/liujiaxu1314/archives/2019/04/index.html">
+  <meta name="description" content="promise(原生封装)：">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="promise(原生封装)">
+<meta property="og:url" content="https://github.com/liujiaxu1314/2018/05/22/promise/index.html">
 <meta property="og:site_name" content="码农">
+<meta property="og:description" content="promise(原生封装)：">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-02T06:09:17.938Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="码农">
+<meta name="twitter:title" content="promise(原生封装)">
+<meta name="twitter:description" content="promise(原生封装)：">
   
     <link rel="alternate" href="/atom.xml" title="码农" type="application/atom+xml">
   
@@ -64,86 +69,86 @@
   </div>
 </div>
 
-        <section id="main">
-  
-  
+        <section id="main"><article id="post-promise" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/22/promise/" class="article-date">
+  <time class="post-time" datetime="2018-05-22T06:35:43.000Z" itemprop="datePublished">
+    <span class="post-month">5月</span><br>
+    <span class="post-day">22</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
     
     
-      
-      
-      <section class="archives-wrap animated rubberBand">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      promise(原生封装)
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/algorithm/">algorithm</a>
+  </div>
+
+          
+              
+  &nbsp; | &nbsp;
+  <div class="view-box">
+    <span id="/2018/05/22/promise/" class="leancloud_visitors" data-flag-title="promise(原生封装)">
+      &nbsp;阅读次数<span class="leancloud-visitors-count"></span>
+    </span>
+  </div>
+
+
+          
         </div>
-        <div class="archives">
+      </header>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/01/upload/" class="archive-article-date">
-  <time class="post-time" datetime="2019-04-01T11:57:44.467Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br>
-    <span class="post-day">01</span>
-  </time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/01/upload/">图片上传(element-ui)</a>
-    </h1>
-  
+        <p><strong> promise(原生封装)：</strong> <excerpt in index | 首页摘要><br><a id="more"></a></excerpt></p>
+<p><the rest of contents | 余下全文><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Promise</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">const</span> self = <span class="keyword">this</span>;</span><br><span class="line">	self.status = <span class="string">'pending'</span>;</span><br><span class="line">	self.data = <span class="literal">undefined</span>;</span><br><span class="line">	self.resolveList = [];</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">resolve</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">		self.status = <span class="string">'resolve'</span>;</span><br><span class="line">		self.data = value;</span><br><span class="line">		self.resolveList.forEach(<span class="function"><span class="params">item</span> =&gt;</span> item(self.data));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">reject</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">		self.status = <span class="string">'reject'</span>;</span><br><span class="line">		self.data = err;</span><br><span class="line">	&#125;</span><br><span class="line">	fn(resolve, reject);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// then 方法的返回值是一个 Promise</span></span><br><span class="line"><span class="built_in">Promise</span>.prototype.then = <span class="function"><span class="keyword">function</span>(<span class="params">resolveFn, rejectFn</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">const</span> self = <span class="keyword">this</span>;</span><br><span class="line">	resolveFn = <span class="keyword">typeof</span> resolveFn === <span class="string">'function'</span> ? resolveFn : <span class="function">(<span class="params">a</span>) =&gt;</span> a;</span><br><span class="line">	<span class="keyword">if</span> (self.status === <span class="string">'resolve'</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">			<span class="keyword">const</span> x = resolveFn(self.data);</span><br><span class="line">			resolve(x);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (self.status === <span class="string">'pending'</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">			self.resolveList.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				<span class="keyword">const</span> x = resolveFn(self.data);</span><br><span class="line">				resolve(x);</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></the></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/01/sql/" class="archive-article-date">
-  <time class="post-time" datetime="2019-04-01T11:57:44.465Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br>
-    <span class="post-day">01</span>
-  </time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/01/sql/">sql</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/04/01/express(app)/" class="archive-article-date">
-  <time class="post-time" datetime="2019-04-01T11:57:44.455Z" itemprop="datePublished">
-    <span class="post-month">4月</span><br>
-    <span class="post-day">01</span>
-  </time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/liujiaxu1314/2018/05/22/promise/" data-id="cjtze9zua0009ecpoh8278nx0" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/04/01/express(app)/">原生封装express(app)</a>
-    </h1>
-  
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/01/express(app)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          原生封装express(app)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/22/axios(interceptors)/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">axios 入门</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
 
 
 </section>
