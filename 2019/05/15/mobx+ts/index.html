@@ -5,15 +5,20 @@
   
 
   
-  <title>Archives: 2019 | 进入代码的海洋</title>
+  <title>mobx+ts的简单理解 | 进入代码的海洋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="进入代码的海洋">
-<meta property="og:url" content="https://liujiaxu1314.github.io/archives/2019/index.html">
+  <meta name="description" content="mobx+ts的简单理解：">
+<meta name="keywords" content="mobx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mobx+ts的简单理解">
+<meta property="og:url" content="https://liujiaxu1314.github.io/2019/05/15/mobx+ts/index.html">
 <meta property="og:site_name" content="进入代码的海洋">
+<meta property="og:description" content="mobx+ts的简单理解：">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-15T06:47:45.377Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进入代码的海洋">
+<meta name="twitter:title" content="mobx+ts的简单理解">
+<meta name="twitter:description" content="mobx+ts的简单理解：">
   
     <link rel="alternate" href="/Mrs.Liu.github.io/atom.xml" title="进入代码的海洋" type="application/atom+xml">
   
@@ -60,40 +65,60 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/Mrs.Liu.github.io/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/Mrs.Liu.github.io/2019/05/15/mobx+ts/" class="archive-article-date">
-  <time datetime="2019-05-15T06:35:43.000Z" itemprop="datePublished">May 15</time>
+        <section id="main"><article id="post-mobx+ts" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Mrs.Liu.github.io/2019/05/15/mobx+ts/" class="article-date">
+  <time datetime="2019-05-15T06:35:43.000Z" itemprop="datePublished">2019-05-15</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Mrs.Liu.github.io/categories/algorithm/">algorithm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Mrs.Liu.github.io/2019/05/15/mobx+ts/">mobx+ts的简单理解</a>
+    <h1 class="article-title" itemprop="name">
+      mobx+ts的简单理解
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> mobx+ts的简单理解：</strong> <excerpt in index | 首页摘要><br><a id="more"></a></excerpt></p>
+<p><the rest of contents | 余下全文></the></p>
+<h5 id="mobx"><a href="#mobx" class="headerlink" title="mobx"></a>mobx</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; observable, action &#125; from &quot;mobx&quot;;//引入</span><br><span class="line">@action.bound //定义函数前使用</span><br><span class="line">@observable //声明变量前用 （变量与变量之间没有;）</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; observable, action, runInAction &#125; <span class="keyword">from</span> <span class="string">"mobx"</span>;<span class="comment">//引入</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BankList</span> </span>&#123;</span><br><span class="line">     <span class="comment">//声明变量前用</span></span><br><span class="line">    @observable result = &#123;&#125;</span><br><span class="line">    @observable flag = <span class="literal">false</span></span><br><span class="line">    @observable errTip = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">    @action.bound <span class="comment">//定义函数前使用</span></span><br><span class="line">    <span class="keyword">async</span> init() &#123;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> BankList()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://liujiaxu1314.github.io/2019/05/15/mobx+ts/" data-id="cjvqceift0005v8poemomug89" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Mrs.Liu.github.io/tags/mobx/">mobx</a></li></ul>
 
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/Mrs.Liu.github.io/2018/05/22/promise/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">promise(原生封装)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         

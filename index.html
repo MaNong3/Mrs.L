@@ -5,17 +5,17 @@
   
 
   
-  <title>码农</title>
+  <title>进入代码的海洋</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
-<meta property="og:title" content="码农">
+<meta property="og:title" content="进入代码的海洋">
 <meta property="og:url" content="https://liujiaxu1314.github.io/index.html">
-<meta property="og:site_name" content="码农">
+<meta property="og:site_name" content="进入代码的海洋">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="码农">
+<meta name="twitter:title" content="进入代码的海洋">
   
-    <link rel="alternate" href="/Mrs.Liu.github.io/atom.xml" title="码农" type="application/atom+xml">
+    <link rel="alternate" href="/Mrs.Liu.github.io/atom.xml" title="进入代码的海洋" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -34,7 +34,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/Mrs.Liu.github.io/" id="logo">码农</a>
+        <a href="/Mrs.Liu.github.io/" id="logo">进入代码的海洋</a>
       </h1>
       
     </div>
@@ -62,12 +62,16 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-upload" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-mobx+ts" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/Mrs.Liu.github.io/2019/04/01/upload/" class="article-date">
-  <time datetime="2019-04-01T11:57:44.467Z" itemprop="datePublished">2019-04-01</time>
+    <a href="/Mrs.Liu.github.io/2019/05/15/mobx+ts/" class="article-date">
+  <time datetime="2019-05-15T06:35:43.000Z" itemprop="datePublished">2019-05-15</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/Mrs.Liu.github.io/categories/algorithm/">algorithm</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -76,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/Mrs.Liu.github.io/2019/04/01/upload/">图片上传(element-ui)</a>
+      <a class="article-title" href="/Mrs.Liu.github.io/2019/05/15/mobx+ts/">mobx+ts的简单理解</a>
     </h1>
   
 
@@ -84,88 +88,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="info-js"><a href="#info-js" class="headerlink" title="info.js"></a>info.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">首先在后台挂载引入info 然后info（app）</span><br><span class="line"><span class="keyword">var</span> multipart = <span class="built_in">require</span>(<span class="string">'connect-multiparty'</span>);<span class="comment">//引入插件</span></span><br><span class="line"><span class="keyword">var</span> multipartMiddleware = multipart();</span><br><span class="line"><span class="keyword">var</span> fs=<span class="built_in">require</span>(<span class="string">"fs"</span>)<span class="comment">//fs读取</span></span><br><span class="line"><span class="keyword">var</span> $path=<span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="comment">//封装一个绝对路径</span></span><br><span class="line"><span class="keyword">const</span> resolveUrl=<span class="function"><span class="keyword">function</span>(<span class="params">url</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> currentPath=process.cwd()</span><br><span class="line">    <span class="keyword">return</span> $path.join(currentPath,url)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//封装一个infoUpload</span></span><br><span class="line"><span class="keyword">const</span> infoUpload = <span class="function"><span class="keyword">function</span>(<span class="params">app</span>) </span>&#123;  </span><br><span class="line">    <span class="comment">//使用post请求</span></span><br><span class="line">    app.post(<span class="string">'/upload'</span>, multipartMiddleware, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> &#123;path,name&#125;=req.files.file</span><br><span class="line">        <span class="keyword">var</span> targetFile=$path.join(<span class="string">"static/upload"</span>,name)</span><br><span class="line">        <span class="comment">//console.log(targetFile,9999)</span></span><br><span class="line">        <span class="keyword">var</span> targetPath=resolveUrl(targetFile)<span class="comment">//调用上面那个函数</span></span><br><span class="line">        <span class="keyword">var</span> sourceFile=fs.readFileSync(path)<span class="comment">//读取当前的路径</span></span><br><span class="line">        <span class="keyword">var</span> error=fs.writeFileSync(targetPath,sourceFile)<span class="comment">//把sourceFile写入到targetPath中</span></span><br><span class="line">        <span class="comment">//console.log(error)</span></span><br><span class="line">        <span class="keyword">if</span>(!error)&#123;</span><br><span class="line">            res.json(&#123;</span><br><span class="line">                code:<span class="number">0</span>,</span><br><span class="line">                url:targetFile</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            res.json(&#123;</span><br><span class="line">                code:<span class="number">1</span>,</span><br><span class="line">                message:<span class="string">"你错了"</span></span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">module</span>.exports=<span class="function"><span class="keyword">function</span>(<span class="params">app</span>)</span>&#123;</span><br><span class="line">     infoUpload(app)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="vue页面"><a href="#vue页面" class="headerlink" title="vue页面"></a>vue页面</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">    <span class="comment">//成功的函数</span></span><br><span class="line">   handleAvatarSuccess(res, file) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(res)</span><br><span class="line">       <span class="built_in">console</span>.log(file)</span><br><span class="line">     <span class="keyword">this</span>.imageUrl = res.url;</span><br><span class="line">   &#125;,</span><br><span class="line">   <span class="comment">//上传之前的函数</span></span><br><span class="line">   beforeAvatarUpload(file) &#123;</span><br><span class="line">     <span class="built_in">console</span>.log(file)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liujiaxu1314.github.io/2019/04/01/upload/" data-id="cjtzfm4i1000h8kpoxsqfgxts" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-sql" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Mrs.Liu.github.io/2019/04/01/sql/" class="article-date">
-  <time datetime="2019-04-01T11:57:44.465Z" itemprop="datePublished">2019-04-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+        <p><strong> mobx+ts的简单理解：</strong> <excerpt in index | 首页摘要><br>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Mrs.Liu.github.io/2019/04/01/sql/">sql</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="sql的封装"><a href="#sql的封装" class="headerlink" title="sql的封装"></a>sql的封装</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> config = &#123;</span><br><span class="line">    mysqlOption: &#123;</span><br><span class="line">        host: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">        port: <span class="string">"3306"</span>,</span><br><span class="line">        user: <span class="string">"root"</span>,</span><br><span class="line">        password: <span class="string">"root"</span>,</span><br><span class="line">        database: <span class="string">"1610B"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = config;</span><br></pre></td></tr></table></figure>
-<h3 id="连接连接池"><a href="#连接连接池" class="headerlink" title="连接连接池"></a>连接连接池</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123; mysqlOption &#125; = <span class="built_in">require</span>(<span class="string">"./config.js"</span>)</span><br><span class="line"><span class="keyword">let</span> mysql = <span class="built_in">require</span>(<span class="string">"mysql"</span>)</span><br><span class="line"><span class="keyword">var</span> connection = mysql.createPool(mysqlOption);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">query</span>(<span class="params">sql</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//2、从连接池中获取一条连接</span></span><br><span class="line">        connection.getConnection(<span class="function">(<span class="params">err, connect</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">            connect.query(sql, (sqlerr, rows, fields) =&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span> (sqlerr) &#123;</span><br><span class="line">                    reject(sqlerr)</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                &#125;</span><br><span class="line">                resolve(rows)</span><br><span class="line">                    <span class="comment">//释放连接</span></span><br><span class="line">                connect.release()</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> readHandle = <span class="function">(<span class="params">sql</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        query(sql).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (data.length &gt; <span class="number">0</span> &amp;&amp; data[<span class="number">0</span>].time != <span class="literal">undefined</span>) &#123;</span><br><span class="line">                data = data.map(<span class="function"><span class="params">i</span> =&gt;</span> &#123;</span><br><span class="line">                    i.time = moment(i.time).format(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>);</span><br><span class="line">                    <span class="keyword">return</span> i;</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line">            resolve(data)</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">            reject(err)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//检测是否有值(有返回false) 比如:注册没被使用就返回false,存在就返回true</span></span><br><span class="line"><span class="keyword">const</span> searchHandle = <span class="function">(<span class="params">sql</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        query(sql).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (data.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                reject(<span class="string">"有值"</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                resolve(<span class="string">"无值"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">            reject(err)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> searchHandleNormal = <span class="function">(<span class="params">sql</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        query(sql).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (data.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                resolve(<span class="string">"有值"</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                reject(<span class="string">"无值"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">            reject(err)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//sql语句操作  </span></span><br><span class="line"><span class="keyword">const</span> sqlHandle = <span class="function">(<span class="params">sql</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        query(sql).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (data.affectedRows &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                resolve(<span class="string">"ok"</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                reject(<span class="string">"err"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">            reject(err)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    query,</span><br><span class="line">    sqlHandle,</span><br><span class="line">    readHandle,</span><br><span class="line">    searchHandle,</span><br><span class="line">    searchHandleNormal</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://liujiaxu1314.github.io/2019/04/01/sql/" data-id="cjtzfm4hu000e8kpoppl7g1yv" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-express(app)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/Mrs.Liu.github.io/2019/04/01/express(app)/" class="article-date">
-  <time datetime="2019-04-01T11:57:44.455Z" itemprop="datePublished">2019-04-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          <p class="article-more-link">
+            <a href="/Mrs.Liu.github.io/2019/05/15/mobx+ts/#more">Read More</a>
+          </p>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Mrs.Liu.github.io/2019/04/01/express(app)/">原生封装express(app)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="express版路由接口封装-app"><a href="#express版路由接口封装-app" class="headerlink" title="express版路由接口封装(app)"></a>express版路由接口封装(app)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> querystring = <span class="built_in">require</span>(<span class="string">"querystring"</span>)</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>)</span><br><span class="line"><span class="keyword">var</span> app = &#123;</span><br><span class="line">    cbArr: [],</span><br><span class="line">    <span class="keyword">get</span>(path, cb) &#123;</span><br><span class="line">        <span class="keyword">this</span>.cbArr.push(&#123; <span class="attr">type</span>: <span class="string">"get"</span>, path, cb &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    post(path, cb) &#123;</span><br><span class="line">        <span class="keyword">this</span>.cbArr.push(&#123; <span class="attr">type</span>: <span class="string">"post"</span>, path, cb &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    run: <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> state = app.cbArr.some(<span class="function">(<span class="params">i</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (url.parse(req.url).pathname == i.path) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i.type == <span class="string">"get"</span>) &#123;</span><br><span class="line"></span><br><span class="line">                    res.writeHead(<span class="number">200</span>, &#123;</span><br><span class="line">                        <span class="string">"Content-type"</span>: <span class="string">"application/json;charset=UTF-8"</span>,</span><br><span class="line">                        <span class="string">"Access-Control-Allow-Origin"</span>: <span class="string">"*"</span></span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="keyword">let</span> resObj = &#123;</span><br><span class="line">                        ...res,</span><br><span class="line">                        send(text) &#123;</span><br><span class="line">                            res.write(<span class="built_in">JSON</span>.stringify(text))</span><br><span class="line">                            res.end()</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">let</span> reqObj = &#123;</span><br><span class="line">                        ...req,</span><br><span class="line">                        query: querystring.parse(url.parse(req.url).query)</span><br><span class="line">                    &#125;</span><br><span class="line">                    i.cb(reqObj, resObj, next)</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">var</span> postData = <span class="string">""</span>;</span><br><span class="line">                    req.addListener(<span class="string">"data"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">                        postData += data;</span><br><span class="line">                    &#125;);</span><br><span class="line">                    res.writeHead(<span class="number">200</span>, &#123;</span><br><span class="line">                        <span class="string">"Content-type"</span>: <span class="string">"application/json;charset=UTF-8"</span>,</span><br><span class="line">                        <span class="string">"Access-Control-Allow-Origin"</span>: <span class="string">"*"</span></span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="keyword">let</span> resObj = &#123;</span><br><span class="line">                        ...res,</span><br><span class="line">                        send(text) &#123;</span><br><span class="line">                            res.write(<span class="built_in">JSON</span>.stringify(text))</span><br><span class="line">                            res.end()</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    req.addListener(<span class="string">"end"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">var</span> reqObj = &#123;</span><br><span class="line">                            ...req,</span><br><span class="line">                            body: querystring.parse(postData)</span><br><span class="line">                        &#125;;</span><br><span class="line">                        i.cb(reqObj, resObj, next);</span><br><span class="line">                    &#125;);</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!state) &#123;</span><br><span class="line">            next()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = app</span><br></pre></td></tr></table></figure>
-      
-    </div>
+    </excerpt></p></div>
     <footer class="article-footer">
-      <a data-url="https://liujiaxu1314.github.io/2019/04/01/express(app)/" data-id="cjtzfm4h700028kpoqprk2vqz" class="article-share-link">Share</a>
+      <a data-url="https://liujiaxu1314.github.io/2019/05/15/mobx+ts/" data-id="cjvqceift0005v8poemomug89" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Mrs.Liu.github.io/tags/mobx/">mobx</a></li></ul>
+
     </footer>
   </div>
   
@@ -208,10 +144,104 @@
       
     </excerpt></p></div>
     <footer class="article-footer">
-      <a data-url="https://liujiaxu1314.github.io/2018/05/22/promise/" data-id="cjtzfm4hn00098kpojlk4ivva" class="article-share-link">Share</a>
+      <a data-url="https://liujiaxu1314.github.io/2018/05/22/promise/" data-id="cjvqceifz000av8poy1zwf74g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Mrs.Liu.github.io/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-sql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Mrs.Liu.github.io/2018/05/22/sql/" class="article-date">
+  <time datetime="2018-05-22T06:35:43.000Z" itemprop="datePublished">2018-05-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Mrs.Liu.github.io/categories/algorithm/">algorithm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Mrs.Liu.github.io/2018/05/22/sql/">sql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> sql：</strong> <excerpt in index | 首页摘要><br>
+        
+          <p class="article-more-link">
+            <a href="/Mrs.Liu.github.io/2018/05/22/sql/#more">Read More</a>
+          </p>
+        
+      
+    </excerpt></p></div>
+    <footer class="article-footer">
+      <a data-url="https://liujiaxu1314.github.io/2018/05/22/sql/" data-id="cjvqceig5000fv8po1kkj8i7z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Mrs.Liu.github.io/tags/js/">js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-express(app)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Mrs.Liu.github.io/2015/05/22/express(app)/" class="article-date">
+  <time datetime="2015-05-22T06:35:43.000Z" itemprop="datePublished">2015-05-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Mrs.Liu.github.io/categories/algorithm/">algorithm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Mrs.Liu.github.io/2015/05/22/express(app)/">原生封装express(app)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 原生封装express(app)：</strong> <excerpt in index | 首页摘要><br>    git 快速入门<br>
+        
+          <p class="article-more-link">
+            <a href="/Mrs.Liu.github.io/2015/05/22/express(app)/#more">Read More</a>
+          </p>
+        
+      
+    </excerpt></p></div>
+    <footer class="article-footer">
+      <a data-url="https://liujiaxu1314.github.io/2015/05/22/express(app)/" data-id="cjvqceifb0000v8polysn4ru0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Mrs.Liu.github.io/tags/git/">git</a></li></ul>
 
     </footer>
   </div>
@@ -255,7 +285,7 @@
       
     </excerpt></p></div>
     <footer class="article-footer">
-      <a data-url="https://liujiaxu1314.github.io/2015/05/22/axios(interceptors)/" data-id="cjtzfm4gx00008kpoeb868exp" class="article-share-link">Share</a>
+      <a data-url="https://liujiaxu1314.github.io/2015/05/22/axios(interceptors)/" data-id="cjvqceifl0001v8poamjro44o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Mrs.Liu.github.io/tags/axios/">axios</a></li></ul>
@@ -302,7 +332,7 @@
       
     </excerpt></p></div>
     <footer class="article-footer">
-      <a data-url="https://liujiaxu1314.github.io/2015/05/22/git/" data-id="cjtzfm4he00068kpotfu4mpew" class="article-share-link">Share</a>
+      <a data-url="https://liujiaxu1314.github.io/2015/05/22/git/" data-id="cjvqceifr0004v8po4s7zx2sf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Mrs.Liu.github.io/tags/git/">git</a></li></ul>
@@ -349,7 +379,7 @@
       
     </excerpt></p></div>
     <footer class="article-footer">
-      <a data-url="https://liujiaxu1314.github.io/2015/05/22/hoc+ts/" data-id="cjtzfm4hl00088kpolys91syi" class="article-share-link">Share</a>
+      <a data-url="https://liujiaxu1314.github.io/2015/05/22/hoc+ts/" data-id="cjvqceifu0006v8pogerjczra" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Mrs.Liu.github.io/tags/react-ts/">react+ts</a></li></ul>
@@ -396,10 +426,57 @@
       
     </excerpt></p></div>
     <footer class="article-footer">
-      <a data-url="https://liujiaxu1314.github.io/2015/05/22/react-router/" data-id="cjtzfm4hs000d8kpoui74g2x5" class="article-share-link">Share</a>
+      <a data-url="https://liujiaxu1314.github.io/2015/05/22/react-router/" data-id="cjvqceig1000bv8po15xn6o8b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Mrs.Liu.github.io/tags/react/">react</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-upload" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/Mrs.Liu.github.io/2015/05/22/upload/" class="article-date">
+  <time datetime="2015-05-22T06:35:43.000Z" itemprop="datePublished">2015-05-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/Mrs.Liu.github.io/categories/algorithm/">algorithm</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Mrs.Liu.github.io/2015/05/22/upload/">图片上传(element-ui)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 图片上传(element-ui)：</strong> <excerpt in index | 首页摘要><br>    git 快速入门<br>
+        
+          <p class="article-more-link">
+            <a href="/Mrs.Liu.github.io/2015/05/22/upload/#more">Read More</a>
+          </p>
+        
+      
+    </excerpt></p></div>
+    <footer class="article-footer">
+      <a data-url="https://liujiaxu1314.github.io/2015/05/22/upload/" data-id="cjvqceig7000iv8pomtznx4cd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/Mrs.Liu.github.io/tags/git/">git</a></li></ul>
 
     </footer>
   </div>
@@ -428,7 +505,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Mrs.Liu.github.io/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Mrs.Liu.github.io/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Mrs.Liu.github.io/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Mrs.Liu.github.io/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Mrs.Liu.github.io/tags/react-ts/">react+ts</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/Mrs.Liu.github.io/tags/axios/">axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Mrs.Liu.github.io/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Mrs.Liu.github.io/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Mrs.Liu.github.io/tags/mobx/">mobx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Mrs.Liu.github.io/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/Mrs.Liu.github.io/tags/react-ts/">react+ts</a></li></ul>
     </div>
   </div>
 
@@ -438,7 +515,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/Mrs.Liu.github.io/tags/axios/" style="font-size: 10px;">axios</a> <a href="/Mrs.Liu.github.io/tags/git/" style="font-size: 10px;">git</a> <a href="/Mrs.Liu.github.io/tags/js/" style="font-size: 10px;">js</a> <a href="/Mrs.Liu.github.io/tags/react/" style="font-size: 10px;">react</a> <a href="/Mrs.Liu.github.io/tags/react-ts/" style="font-size: 10px;">react+ts</a>
+      <a href="/Mrs.Liu.github.io/tags/axios/" style="font-size: 10px;">axios</a> <a href="/Mrs.Liu.github.io/tags/git/" style="font-size: 20px;">git</a> <a href="/Mrs.Liu.github.io/tags/js/" style="font-size: 15px;">js</a> <a href="/Mrs.Liu.github.io/tags/mobx/" style="font-size: 10px;">mobx</a> <a href="/Mrs.Liu.github.io/tags/react/" style="font-size: 10px;">react</a> <a href="/Mrs.Liu.github.io/tags/react-ts/" style="font-size: 10px;">react+ts</a>
     </div>
   </div>
 
@@ -447,7 +524,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Mrs.Liu.github.io/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Mrs.Liu.github.io/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Mrs.Liu.github.io/archives/2015/05/">May 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/Mrs.Liu.github.io/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Mrs.Liu.github.io/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/Mrs.Liu.github.io/archives/2015/05/">May 2015</a></li></ul>
     </div>
   </div>
 
@@ -460,19 +537,19 @@
       <ul>
         
           <li>
-            <a href="/Mrs.Liu.github.io/2019/04/01/upload/">图片上传(element-ui)</a>
-          </li>
-        
-          <li>
-            <a href="/Mrs.Liu.github.io/2019/04/01/sql/">sql</a>
-          </li>
-        
-          <li>
-            <a href="/Mrs.Liu.github.io/2019/04/01/express(app)/">原生封装express(app)</a>
+            <a href="/Mrs.Liu.github.io/2019/05/15/mobx+ts/">mobx+ts的简单理解</a>
           </li>
         
           <li>
             <a href="/Mrs.Liu.github.io/2018/05/22/promise/">promise(原生封装)</a>
+          </li>
+        
+          <li>
+            <a href="/Mrs.Liu.github.io/2018/05/22/sql/">sql</a>
+          </li>
+        
+          <li>
+            <a href="/Mrs.Liu.github.io/2015/05/22/express(app)/">原生封装express(app)</a>
           </li>
         
           <li>
